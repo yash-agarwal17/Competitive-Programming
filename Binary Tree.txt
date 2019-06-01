@@ -120,4 +120,82 @@ void mirror(Node* node)
      return;
 }
 
+int diameter(struct node * tree) 
+{ 
+   /* base case where tree is empty */
+   if (tree == NULL) 
+     return 0; 
+  
+  /* get the height of left and right sub-trees */
+  int lheight = height(tree->left); 
+  int rheight = height(tree->right); 
+  
+  /* get the diameter of left and right sub-trees */
+  int ldiameter = diameter(tree->left); 
+  int rdiameter = diameter(tree->right); 
+  
+  /* Return max of following three 
+   1) Diameter of left subtree 
+   2) Diameter of right subtree 
+   3) Height of left subtree + height of right subtree + 1 */
+  return max(lheight + rheight + 1, max(ldiameter, rdiameter)); 
+}  
+// Function to insert nodes in level order from given array
+Node* insertLevelOrder(int arr[], Node* root, 
+                       int i, int n) 
+{ 
+    // Base case for recursion 
+    if (i < n) 
+    { 
+        Node* temp = newNode(arr[i]); 
+        root = temp; 
+  
+        // insert left child 
+        root->left = insertLevelOrder(arr, 
+                   root->left, 2 * i + 1, n); 
+  
+        // insert right child 
+        root->right = insertLevelOrder(arr, 
+                  root->right, 2 * i + 2, n); 
+    } 
+    return root; 
+} 
+// recursive function to find mirror of Node 
+int findMirrorRec(int target, struct Node* left,  struct Node* right) 
+{ 
+	/* if any of the Node is none then Node itself 
+	and decendent have no mirror, so return 
+	none, no need to further explore! */
+	if (left==NULL || right==NULL) 
+		return 0; 
+
+	/* if left Node is target Node, then return 
+	right's key (that is mirror) and vice 
+	versa */
+	if (left->key == target) 
+		return right->key; 
+
+	if (right->key == target) 
+		return left->key; 
+
+	// first recur external Nodes 
+	int mirror_val = findMirrorRec(target, left->left, right->right); 
+	if (mirror_val) 
+		return mirror_val; 
+
+	// if no mirror found, recur internal Nodes 
+	findMirrorRec(target, left->right, right->left); 
+} 
+
+// interface for mirror search 
+int findMirror(struct Node* root, int target) 
+{ 
+	if (root == NULL) 
+		return 0; 
+	if (root->key == target) 
+		return target; 
+	return findMirrorRec(target, root->left, root->right); 
+}
+
+
 
