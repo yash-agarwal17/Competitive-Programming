@@ -1,0 +1,84 @@
+// C++ Program for Floyd Warshall Algorithm 
+#include <bits/stdc++.h> 
+using namespace std; 
+
+#define INF 10000000 
+
+void printSolution(vector<vector<int> > dist,int V); 
+
+void floydWarshall (vector<vector<int> > graph,int V) 
+{ 
+
+	int i, j, k; 
+	
+	vector<vector<int> > dist;
+
+	for (i = 0; i < V; i++) {
+	    vector<int> temp;
+		for (j = 0; j < V; j++) {
+			temp.push_back(graph[i][j]); 
+		}
+		dist.push_back(temp);
+	}
+
+	for (k = 0; k < V; k++) 
+	{ 
+
+		for (i = 0; i < V; i++) 
+		{ 
+
+			for (j = 0; j < V; j++) 
+			{ 
+				if (dist[i][k] + dist[k][j] < dist[i][j]) 
+					dist[i][j] = dist[i][k] + dist[k][j]; 
+			} 
+		} 
+	} 
+
+	printSolution(dist,V); 
+} 
+
+void printSolution(vector<vector<int> > dist,int V) 
+{ 
+	//cout<<"The following matrix shows the shortest distances"
+		//	" between every pair of vertices \n"; 
+	for (int i = 0; i < V; i++) 
+	{ 
+		for (int j = 0; j < V; j++) 
+		{ 
+			if (dist[i][j] == INF) 
+				cout<<"INF"<<" "; 
+			else
+				cout<<dist[i][j]<<" "; 
+		} 
+		cout<<endl; 
+	} 
+} 
+
+// Driver code 
+int main() 
+{ 
+	int t;
+	cin>>t;
+	while(t--)
+	{
+	    int n;
+	    cin>>n;
+	    vector<vector<int> > v;
+	    for(int i=0;i<n;i++){
+	        vector<int> temp;
+	     for(int j=0;j<n;j++){
+	         int x;
+	         cin>>x;
+	         temp.push_back(x);
+	     }
+	     v.push_back(temp);
+	    }
+
+	    floydWarshall(v,n);
+	    /*for(int i=0;i<n;i++)
+	     for(int j=0;j<n;j++)
+	      cout<<v[i][j]<<" ";*/
+	}
+	return 0; 
+} 
