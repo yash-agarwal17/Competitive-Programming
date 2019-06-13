@@ -14,8 +14,7 @@ void add_edge(vector<int> adj[], int src, int dest)
 // a modified version of BFS that stores predecessor 
 // of each vertex in array p 
 // and its distance from source in array d 
-bool BFS(vector<int> adj[], int src, int dest, int v, 
-							int pred[], int dist[]) 
+bool BFS(vector<int> adj[], int src, int dest, int v,int pred[], int dist[]) 
 { 
 	// a queue to maintain queue of vertices whose 
 	// adjacency list is to be scanned as per normal 
@@ -67,8 +66,7 @@ bool BFS(vector<int> adj[], int src, int dest, int v,
 
 // utility function to print the shortest distance 
 // between source vertex and destination vertex 
-void printShortestDistance(vector<int> adj[], int s, 
-									int dest, int v) 
+void printShortestDistance(vector<int> adj[], int s, int dest, int v) 
 { 
 	// predecessor[i] array stores predecessor of 
 	// i and distance array stores distance of i 
