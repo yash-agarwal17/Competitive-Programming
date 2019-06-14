@@ -14,7 +14,7 @@ void add_edge(vector<int> adj[], int src, int dest)
 // a modified version of BFS that stores predecessor 
 // of each vertex in array p 
 // and its distance from source in array d 
-bool BFS(vector<int> adj[], int src, int dest, int v,int pred[], int dist[]) 
+bool BFS(vector<int> adj[], int src, int dest, int v, int pred[], int dist[]) 
 { 
 	// a queue to maintain queue of vertices whose 
 	// adjacency list is to be scanned as per normal 
@@ -60,7 +60,6 @@ bool BFS(vector<int> adj[], int src, int dest, int v,int pred[], int dist[])
 			} 
 		} 
 	} 
-
 	return false; 
 } 
 
