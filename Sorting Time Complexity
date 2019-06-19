@@ -1,5 +1,5 @@
 Time Complexities of Sorting Algorithms:
-Algorithm	Best	Average	Worst
+Algorithm	 Best	 Average	 Worst
 Quick Sort	Ω(n log(n))	Θ(n log(n))	O(n^2)
 Bubble Sort	Ω(n)	Θ(n^2)	O(n^2)
 Merge Sort	Ω(n log(n))	Θ(n log(n))	O(n log(n))
