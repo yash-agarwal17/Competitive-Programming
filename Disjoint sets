@@ -6,11 +6,11 @@ using namespace std;
 
 int root (int Arr[ ] ,int i)
 {
-    while(Arr[ i ] != i)
+    if(Arr[i]!=i)
     {
-        i = Arr[ Arr[ i ] ] ;  
+    	Arr[i] = root(Arr[i],Arr);
     }
-return i;
+    return Arr[i];
 }
 
 void weighted_union(int Arr[ ],int size[ ],int A,int B)
