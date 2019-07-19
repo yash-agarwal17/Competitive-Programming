@@ -8,8 +8,7 @@ int root (int Arr[ ] ,int i)
 {
     while(Arr[ i ] != i)
     {
-        Arr[ i ] = Arr[ Arr[ i ] ] ; 
-i = Arr[ i ]; 
+        i = Arr[ Arr[ i ] ] ;  
     }
 return i;
 }
