@@ -8,7 +8,7 @@ int root (int Arr[ ] ,int i)
 {
     if(Arr[i]!=i)
     {
-    	Arr[i] = root(Arr[i],Arr);
+    	Arr[i] = root(Arr,Arr[i]);
     }
     return Arr[i];
 }
