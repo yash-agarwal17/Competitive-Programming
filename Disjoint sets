@@ -2,7 +2,7 @@
 
 using namespace std;
 
-// modified root function.
+//functiion to find the root
 
 int root (int Arr[ ] ,int i)
 {
